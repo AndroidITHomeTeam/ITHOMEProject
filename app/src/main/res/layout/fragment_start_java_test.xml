@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/javaTestLevel1RelativeID"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Mobile.MobileLessonsFragments.StartJavaTestFragment">
+
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/scoreViewID"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/correctScoreViewID"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/corrctQuizID"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/text_circle_view"
+                android:gravity="right"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correct"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wrongScoreViewID"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/wrongQuizID"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/text_cirlce_view_second"
+                android:gravity="right"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wrong"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scoreViewID"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/questionID"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#dadaea88"
+            android:gravity="center_horizontal"
+            android:text="Question"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textChooseID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Choose correct answer below"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearButtonID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearTextID"
+        android:layout_margin="5dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/answare1ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#FF0000FF"
+            android:text="answare1"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/answare2ID"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#FF0000FF"
+            android:text="answare2"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/answare3ID"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#FF0000FF"
+            android:text="answare3"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/answare4ID"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#FF0000FF"
+            android:text="answare4"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnStartTestID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearButtonID"
+        android:layout_margin="5dp"
+        android:background="#dadaea88"
+        android:text="Start Test" />
+
+</RelativeLayout>

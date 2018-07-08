@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_up_background_image"
+    tools:context=".Activity.SignUpActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="15dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/logoLineralID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/logoID"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ithome" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/logoLineralID"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textColor="#302b2c"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/nameID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/capsule"
+                    android:hint="  name"
+                    android:textColorHint="#484a4d" />
+
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/emailID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/capsule"
+                    android:hint="  email"
+                    android:textColorHint="#484a4d" />
+
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/passwordID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/capsule"
+                    android:hint="  password"
+                    android:textColorHint="#484a4d" />
+
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/comfirmPasswordID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/capsule"
+                    android:hint="  comfirm password"
+                    android:textColorHint="#484a4d" />
+
+                <Button
+                    android:id="@+id/btnSignUpID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_capsule"
+                    android:text="@string/sign_up"
+                    android:textColor="#211e1e" />
+            </LinearLayout>
+       </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
