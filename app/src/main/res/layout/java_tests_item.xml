@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/news_toolbar"
-            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
+                android:layout_marginStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Online test"
-                android:textColor="@color/colorYellow"
+                android:textColor="@color/colorDarkYellow"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="Level"
-                android:textColor="@color/colorYellow"
+                android:textColor="@color/colorDarkYellow"
                 android:textSize="25sp"
                 android:textStyle="bold" />
         </LinearLayout>

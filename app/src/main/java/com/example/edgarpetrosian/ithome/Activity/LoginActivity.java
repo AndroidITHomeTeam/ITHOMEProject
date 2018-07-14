@@ -7,11 +7,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.edgarpetrosian.ithome.Fragment.ResetPasswordFragment;
 import com.example.edgarpetrosian.ithome.Models.ModelLogin;
@@ -19,6 +21,8 @@ import com.example.edgarpetrosian.ithome.R;
 import com.example.edgarpetrosian.ithome.WebService.SignInRetrofitApi;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -31,9 +35,10 @@ import retrofit.client.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnKeyListener, View.OnClickListener {
     public static final String URL = "http://distance-learning.ga/";
+    private static final String TAG = "LoginActivity";
     private EditText password, email;
     private Button btnLogin;
-    private TextView btnSignUp, btnForgot;
+    private TextView btnSignUp, btnForgot, contactUs;
     private AlertDialog.Builder alertDialog;
     private ProgressDialog progressDialog;
     private String getExtra;
@@ -67,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
         btnLogin.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
         btnForgot.setOnClickListener(this);
+        contactUs.setOnClickListener(this);
         totalPreferences = load();
         getEmail = subEmail();
         String getIntent = getIntent().getStringExtra("delete");
@@ -92,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
         btnLogin = findViewById(R.id.btnLogInID);
         btnSignUp = findViewById(R.id.GoToSignUpID);
         btnForgot = findViewById(R.id.btnForgotID);
+        contactUs = findViewById(R.id.contactUsID);
     }
 
     @Override
@@ -119,6 +126,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
                 fragmentTransaction = getSupportFragmentManager().beginTransaction().addToBackStack("");
                 fragmentTransaction.add(R.id.loginConteiner, new ResetPasswordFragment());
                 fragmentTransaction.commit();
+                break;
+            case R.id.contactUsID:
+                if (isServicesOK()) {
+                    startActivity(new Intent(LoginActivity.this, MapActivity.class));
+                }
                 break;
         }
     }
@@ -219,5 +231,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
         passwordPref = totalPreferences.substring(index + 1);
 
         return passwordPref;
+    }
+
+    public boolean isServicesOK() {
+        Log.d(TAG, "isServicesOK: checking google services");
+        int avalibale = GoogleApiAvailability
+                .getInstance()
+                .isGooglePlayServicesAvailable(LoginActivity.this);
+        if (avalibale == ConnectionResult.SUCCESS) {
+            Log.d(TAG, "isServicesOK: Google services is working");
+            return true;
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(avalibale)) {
+            Log.d(TAG, "isServicesOK: Google services is not working");
+            Toast.makeText(this, "HAMBAL", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "We can not make map", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
